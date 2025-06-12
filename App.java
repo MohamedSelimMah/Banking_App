@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class App{
 	private BankClass bank;
 
@@ -6,7 +8,34 @@ public class App{
 	}
 
 	public void displayMenu(){
-		//TODO: Displays Main Menu no return value
+		Scanner in = new Scanner(System.in);
+		while (true){
+			System.out.println("\n-------Welcome to the bank!------");
+			System.out.println("Menu Options:");
+			System.out.println("1. Create Account");
+			System.out.println("2. Login");
+			System.out.println("3. List Accounts(Admin only)");
+			System.out.println("4. Exit");
+
+			String choice = in.nextLine().trim();
+
+			switch(choice){
+				case "1":
+					createAccount();
+					break;
+				case "2":
+					login();
+					break;
+				case "3":
+					listAcc();
+					break;
+				case "4":
+					exitApp();
+					break;
+				default:
+					System.out.println("invalid option try again!");}
+		}
+
 	}
 
 	public void createAccount(){
@@ -26,6 +55,7 @@ public class App{
 	}
 
 	public void exitApp(){
-		//TODO: Ends the program
+		System.out.println("GoodBye! Have a Good Dayy!!");
+		System.exit(0);
 	}
 }
