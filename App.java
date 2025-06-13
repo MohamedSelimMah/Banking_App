@@ -39,15 +39,49 @@ public class App{
 	}
 
 	public void createAccount(){
-		//TODO: HNAdels user input for account creation
-	}
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.println("enter username");
+		String username= scanner.nextLine();
+	
+		System.out.println("enter PIN");
+		String pin = scanner.nextLine();
+
+		if(pin.length() != 4){
+			System.out.println("Invalid input: the pin length = 4");
+			return;
+		}
+		else if(username.isEmpty()){
+			System.out.println("Invalid input: Username can't be empty");
+			return;
+		}
+		bank.createAccount(username, pin);
+		
+		System.out.println("Account Created Successfully!");
+		}
 
 	public void login(){
-		//TODO: Authenticates user and directs to account creation
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter Account Number");
+		int accountNum = scanner.nextInt();
+		scanner.nextLine();
+
+		System.out.println("Enter PIN");
+		String pin= scanner.nextLine();
+
+		if(bank.authenticate(accountNum, pin)){
+			System.out.println("Logged In Successfully!");
+			handleLoggedInUser(accountNum);
+		}
+		else{
+			System.out.println("Log in failed retry! verify your inputs");
+		}
+
+
 	}
 
 	public void handleLoggedInUser(AccountClass account){
-		//TODO: Manages logged-in user operations
+		//TODO: Manage logged in operations
 	}
 
 	public void listAcc(){
