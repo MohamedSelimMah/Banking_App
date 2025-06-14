@@ -10,6 +10,9 @@ public class BankClass{
 	}
 
 
+	public void getTranHisto(){
+		//TODO:print transaction history
+	}
 
 	public void createAccount(String name, String pin){
 		//TODO: Creates a new account, no return value needed

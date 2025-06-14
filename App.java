@@ -107,9 +107,19 @@ public class App{
 					}
 					break;
 				case "3":
-					withdraw();
+					System.out.println("Enter the amount to withdraw");
+					double withdrawam= scanner.nextDouble();
+					scanner.nextLine();
+					if(bank.withdraw(accountNum, withdrawam)){
+						System.out.println("Withdraw successful");
+					}else{
+						System.out.println("Withdraw failed");
+					}
 					break;
 				case "4":
+					String transacHis = bank.getTranHisto();
+					System.out.println("transactions History:");
+					System.out.println(transacHis);
 					break;
 				case "5":
 					exitApp();
