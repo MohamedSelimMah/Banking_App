@@ -32,7 +32,7 @@ public class App{
 				case "4":
 					exitApp();
 					break;
-				default:
+				default:z
 					System.out.println("invalid option try again!");}
 		}
 
@@ -81,7 +81,42 @@ public class App{
 	}
 
 	public void handleLoggedInUser(AccountClass account){
-		//TODO: Manage logged in operations
+		Scanner scanner = new Scanner (System.in);
+		while(true){
+			System.out.println("1. Check balance");
+			System.out.println("2. Deposit money");
+			System.out.println("3. Withdraw money");
+			System.out.println("4. View transaction history");
+			System.out.println("5. Logout");
+
+			String choise= scanner.nextLine();
+
+			switch(choise){
+				case "1":
+					double balance= bank.checkBal(accountNum);
+					System.out.println("Your Balance is"+balance);
+					break;
+				case "2":
+					System.out.println("Enter the amount to deposit: ");
+					double depositam= scanner.nextDouble();
+					scanner.nextLine();
+					if(bank.deposit(accountNum,depositam)){
+						System.out.println("deposit successful");
+					}else{
+						System.out.println("Deposit failed.");
+					}
+					break;
+				case "3":
+					withdraw();
+					break;
+				case "4":
+					break;
+				case "5":
+					exitApp();
+					break;
+				default:
+					System.out.println("Invalid option");
+
 	}
 
 	public void listAcc(){
